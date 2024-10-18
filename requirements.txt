@@ -1,0 +1,6 @@
+kornia==0.7.3
+kornia_moons==0.2.9
+matplotlib==3.9.2
+numpy==2.1.2
+torch==2.5.0
+torchvision==0.20.0
