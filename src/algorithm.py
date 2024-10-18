@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 import cv2
 import kornia as K
@@ -75,7 +76,6 @@ def split_image_arr(image, n, arr_name):
             coordinates = {'start_h': start_h, 'end_h': end_h, 'start_w': start_w, 'end_w': end_w}
             key = f'cropped_{i}_{j}'
             cropped_images[key] = {'coordinates': coordinates, 'image': cropped}
-            # Сохранение изображения в PNG
             save_path = f"{output_path}_{arr_name}/{key}.png"
             save_image(cropped.squeeze(), save_path)
 
@@ -107,14 +107,12 @@ def split_image(image, n):
     return cropped_images
 
 def save_image(image, path):
-    # Преобразование Tensor в PIL.Image
     image_pil = F.to_pil_image(image)
-    # Сохранение изображения
     image_pil.save(path)
 
 
 def matcher(path_img_1, path_img_2, matcher, w, h, n_pair, crp_w, crp_h):
-    # n_pair - кол-во фрагментов на оси X + на оси Y
+    # n_pair
     # Load images
     img1 = load_torch_image(path_img_1, w, h)
     img2 = load_torch_image(path_img_2, w, h)
