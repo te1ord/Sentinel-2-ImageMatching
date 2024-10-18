@@ -175,5 +175,4 @@ def matcher(path_img_1, path_img_2, matcher, w, h, n_pair, crp_w, crp_h):
                    'feature_color': (0.2, 0.2, 1), 'vertical': False})
     
     plt.axis('off')
-    plt.savefig('../assets/matches.png')
     plt.show()
